@@ -35,8 +35,9 @@ export default function CursorsProvider(props: { children: React.ReactNode }) {
   }>({ width: 0, height: 0 });
   const [others, setOthers] = useState<CursorsMap>({});
 
+  const socketHost = PARTYKIT_HOST || "127.0.0.1:1999";
   const socket = usePartySocket({
-    host: PARTYKIT_HOST,
+    host: socketHost,
     party: "cursors",
     room: "shared-cursors",
   });
