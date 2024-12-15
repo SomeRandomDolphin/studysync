@@ -8,7 +8,7 @@ const PARTYKIT_URL = `${PARTYKIT_PROTOCOL}://${PARTYKIT_HOST}`;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["localhost", "pbs.twimg.com", "private-avatars.githubusercontent.com"],
+    domains: ["localhost", "pbs.twimg.com", "avatars.githubusercontent.com", "private-avatars.githubusercontent.com"],
   },
   rewrites: async () => [
     {
