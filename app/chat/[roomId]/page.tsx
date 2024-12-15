@@ -24,6 +24,7 @@ export default async function ChatRoomPage({
   // fetch user session for server rendering
   const session = await getServerSession(authOptions);
   const user = session?.user as User | null;
+  const socketHost = PARTYKIT_HOST || "127.0.0.1:1999";
 
   return (
     <div className="w-full flex flex-col gap-4 justify-between items-start">
@@ -43,7 +44,7 @@ export default async function ChatRoomPage({
           </div>
 
           <Room
-            host={PARTYKIT_HOST}
+            host={socketHost}
             party={party}
             user={user}
             room={params.roomId}

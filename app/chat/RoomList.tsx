@@ -13,8 +13,9 @@ export const RoomList: React.FC<{ initialRooms: RoomInfo[] }> = ({
   const [rooms, setRooms] = useState(initialRooms);
 
   // open a websocket connection to the server
+  const socketHost = PARTYKIT_HOST || "127.0.0.1:1999";
   const socket = usePartySocket({
-    host: PARTYKIT_HOST,
+    host: socketHost,
     party: "chatrooms",
     room: SINGLETON_ROOM_ID,
     onMessage(event: MessageEvent<string>) {

@@ -9,8 +9,9 @@ import { PARTYKIT_HOST } from "@/app/env";
 export default function PresenceBar(props: { roomId: string }) {
   const [room, setRoom] = useState<RoomInfo | null>(null);
 
+  const socketHost = PARTYKIT_HOST || "127.0.0.1:1999";
   usePartySocket({
-    host: PARTYKIT_HOST,
+    host: socketHost,
     party: "chatrooms",
     room: SINGLETON_ROOM_ID,
     onMessage(event: MessageEvent<string>) {
